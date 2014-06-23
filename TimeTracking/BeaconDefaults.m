@@ -14,6 +14,7 @@
 {
     self = [super init];
     if(self) {
+        //@todo konfigurierbar machen in Settings
 //        _supportedProximityUUIDs = @[[[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"], //STANDARD UUID FOR ESTIMOTE
 //                                     [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6E"]];
 

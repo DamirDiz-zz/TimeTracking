@@ -14,8 +14,11 @@
 
 @implementation AppDelegate
 
+//@todo
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"Tu es");
     _dataModel = [[EventKitModel alloc] initWithCalendarName:@"TimeTracking"];
     [[BeaconTracker sharedBeaconTracker] startTrackingBeacons];
     [[BeaconTracker sharedBeaconTracker] addDelegate:self];
@@ -97,6 +100,22 @@
 {
     NSLog(@"LEFT %@", region.identifier);
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    //@todo
+    if(application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground )
+    {
+        //opened from a push notification when the app was on background
+    }
+    
+
+    // If the application is in the foreground, we will notify the user of the region's state via an alert.
+    NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    [alert show];
+}
+
 
 
 @end
